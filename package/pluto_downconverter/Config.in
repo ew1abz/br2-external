@@ -1,0 +1,5 @@
+config BR2_PACKAGE_PLUTO_DOWNCONVERTER
+	bool "pluto-downconverter"
+	select BR2_PACKAGE_LIBIIO
+	help
+	  Native PlutoSDR frequency translator built from the workspace src tree.

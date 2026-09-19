@@ -5,7 +5,7 @@ on:
   workflow_call:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build-rootfs:
@@ -31,15 +31,6 @@ jobs:
       - name: Upload rootfs
         uses: actions/upload-artifact@v6
         with:
-          name: adsp-sc598-rootfs
-          path: ci/mkosi.output/adsp-sc598-rootfs.tar.zst
+          name: adsp-arm64-rootfs
+          path: ci/mkosi.output/adsp-arm64-rootfs.tar.zst
           retention-days: 30
-
-      - name: Upload rootfs to release
-        if: github.event_name == 'release'
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ci/mkosi.output/adsp-sc598-rootfs.tar.zst
-          asset_name: adsp-sc598-rootfs-${{ github.event.release.tag_name }}.tar.zst
-          tag: ${{ github.ref }}

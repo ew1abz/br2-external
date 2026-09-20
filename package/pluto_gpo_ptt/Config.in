@@ -1,0 +1,6 @@
+config BR2_PACKAGE_PLUTO_GPO_PTT
+	bool "pluto-gpo-ptt"
+	select BR2_PACKAGE_LIBIIO
+	help
+	  AD9363 GPO pin control for keying an external PA from the
+	  radio's Rx/Tx state. Built from the workspace src tree.

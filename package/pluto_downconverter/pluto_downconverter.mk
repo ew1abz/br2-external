@@ -7,7 +7,7 @@
 PLUTO_DOWNCONVERTER_SITE = $(BR2_EXTERNAL_ADI_PATH)/../../../apps/pluto_downconverter
 PLUTO_DOWNCONVERTER_SITE_METHOD = local
 PLUTO_DOWNCONVERTER_LICENSE = GPL-2.0+
-PLUTO_DOWNCONVERTER_DEPENDENCIES = libiio
+PLUTO_DOWNCONVERTER_DEPENDENCIES = libiio libad9361-iio
 
 # The source tree is shared with the superproject at apps/pluto_downconverter.
 define PLUTO_DOWNCONVERTER_BUILD_CMDS
@@ -15,7 +15,7 @@ define PLUTO_DOWNCONVERTER_BUILD_CMDS
 		-I$(@D) \
 		$(@D)/pluto_downconverter.c \
 		-o $(@D)/pluto_downconverter \
-		-liio -lm
+		-liio -lad9361 -lm
 endef
 
 define PLUTO_DOWNCONVERTER_INSTALL_TARGET_CMDS
